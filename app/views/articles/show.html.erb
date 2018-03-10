@@ -5,7 +5,17 @@
     
     <%= @article.title %>
 </p>
-    
+<% if @article.user %>
+<p>
+    <ul>
+        <div>
+            <li><%= link_to 'avatar', user_path(@article.user)%></li>
+            <li><%= link_to @article.user.username, user_path(@article.user)%></li>
+            <li><%= pluralize(@article.user.articles.count, "article")  %></li>
+        </div>
+    </ul>
+</p>
+<% end %>
 <p>
     Description: 
     
